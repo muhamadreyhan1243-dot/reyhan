@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Produk - Badminton Store</title>
+    <link rel="stylesheet" href="style.css">
+ <style>
+       {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background:#f4f4f4;
+}
+
+/* NAVBAR */
+.navbar {
+  background:#0b3d91;
+  color:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navbar a {
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* HERO */
+.hero {
+  background:linear-gradient(to right,#0b3d91,#1e90ff);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+}
+
+/* PRODUK */
+.produk {
+  padding:40px;
+  text-align:center;
+}
+
+.produk-list {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:30px;
+}
+
+.card {
+  background:white;
+  width:230px;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(71, 75, 90, 0.1);
+}
+
+.card img {
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.card h3 {
+  margin-top:10px;
+}
+
+.card button {
+  margin-top:10px;
+  padding:10px;
+  width:100%;
+  background:#0b3d91;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* KERANJANG */
+.cart {
+  background:white;
+  margin:40px;
+  padding:30px;
+  border-radius:10px;
+}
+
+.cart ul {
+  margin-top:15px;
+  list-style:none;
+}
+
+.cart li {
+  padding:6px 0;
+  border-bottom:1px solid #ddd;
+}
+
+/* FOOTER */
+footer {
+  background:#0b3d91;
+  color:white;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>PRODUK KAMI</h1>
+</header>
+
+<nav>
+    <a href="uas reyhan1.html">Home</a>
+    <a href="uas reyhan.html">Produk</a>
+    <a href="uas reyhan3.html">About</a>
+    <a href="uas reyhan4.html">Order</a>
+</nav>
+<body>
+<meta charset="UTF-8">
+    <title>Badminton Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cartModal">
+      🛒 Keranjang (<span id="cartCount">0</span>)
+    </button>
+  </div>
+</nav>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <h1>Badminton Store</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Produk</a>
+    <a href="#cart">Keranjang (<span id="cart-count">0</span>)</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h2>Lengkapi Kebutuhan kamu untuk bermain Badminton</h2>
+</section>
+
+<!-- PRODUK -->
+<section class="produk">
+<h2>Produk Unggulan</h2>
+
+<div class="produk-list">
+
+  <div class="card">
+    <img src="gambar/raket1.png" alt="Raket">
+    <h3>Raket</h3>
+    <p>Rp 1.700.000</p>
+    <button onclick="addToCart('Raket', 1700000)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="card">
+    <img src="gambar/tas.png" alt="Tas">
+    <h3>Tas Raket</h3>
+    <p>Rp 2.400.000</p>
+    <button onclick="addToCart('Tas Raket', 2400000)">Tambah ke Keranjang</button>
+  </div>
+
+  <div class="card">
+    <img src="gambar/sepatu.png" alt="Sepatu">
+    <h3>Sepatu</h3>
+    <p>Rp 1.900.000</p>
+    <button onclick="addToCart('Sepatu Badminton', 1900000)">Tambah ke Keranjang</button>
+  </div>
+
+</div>
+</section>
+
+<!-- Modal Keranjang -->
+<div class="modal fade" id="cartModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Keranjang Belanja</h5>
+      </div>
+      <div class="modal-body">
+        <ul id="cartItems" class="list-group"></ul>
+        <p class="fw-bold mt-3">Total: Rp <span id="total">0</span></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout -->
+<div class="modal fade" id="checkoutModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Checkout</h5>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control mb-2" placeholder="Alamat Pengiriman">
+        <select class="form-control">
+          <option>Transfer Bank</option>
+          <option>COD</option>
+          <option>E-Wallet</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" onclick="pay()">Bayar Sekarang</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3 mt-5">
+  &copy; 2025 Badminton Store
+</footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function login() {
+  document.getElementById("loginStatus").innerText = "Login berhasil!";
+}
+
+function addToCart(product, price) {
+  cart.push({ product, price });
+  total += price;
+  document.getElementById("cartCount").innerText = cart.length;
+  renderCart();
+}
+
+function renderCart() {
+  let list = document.getElementById("cartItems");
+  list.innerHTML = "";
+
+  cart.forEach((item, index) => {
+    list.innerHTML += `
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>${item.product} - Rp ${item.price}</span>
+        <button class="btn btn-sm btn-danger" onclick="removeItem(${index})">
+          Batal
+        </button>
+      </li>
+    `;
+  });
+
+  document.getElementById("total").innerText = total;
+}
+
+function removeItem(index) {
+  total -= cart[index].price;
+  cart.splice(index, 1);
+  document.getElementById("cartCount").innerText = cart.length;
+  renderCart();
+}
+
+function pay() {
+  alert("Pembayaran berhasil! Pesanan diproses.");
+  cart = [];
+  total = 0;
+  renderCart();
+  document.getElementById("cartCount").innerText = 0;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

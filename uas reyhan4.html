@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontak - Badminton Store</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f2f6fc;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #0f172a, #14532d);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+#jam {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* NAVBAR */
+nav {
+    background: #020617;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+}
+
+nav a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #22c55e;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* CONTAINER */
+.container {
+    padding: 40px 60px;
+}
+
+/* GRID CARD */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 15px;
+}
+
+.card p {
+    padding: 0 15px 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* FORM */
+form {
+    max-width: 400px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+/* FOOTER */
+footer {
+    background: #020617;
+    color: #9ca3af;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+    </style>
+</head>
+<body onload="tampilkanWaktu()">
+
+<header>
+    <h1>FORM PEMESANAN</h1>
+</header>
+
+<nav>
+    <a href="uas reyhan1.html">Home</a>
+    <a href="uas reyhan2.html">Produk</a>
+    <a href="uas reyhan3.html">About</a>
+    <a href="uas reyhan4.html">Order</a>
+</nav>
+
+<div class="container">
+    <form>
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Pesanan"></textarea>
+        <button>Kirim Pesanan</button>
+    </form>
+</div>
+
+<footer>
+    <p>© 2026 Reyhan | NIM: 251011700128</p>
+</footer>
+
+<script>
+function tampilkanWaktu() {
+    setInterval(function () {
+        let waktu = new Date();
+        document.getElementById("jam").innerHTML =
+            "Waktu: " +
+            waktu.getHours() + ":" +
+            waktu.getMinutes() + ":" +
+            waktu.getSeconds();
+    }, 1000);
+}
+</script>
+</body>
+</html>
